@@ -58,15 +58,19 @@
                 ]
             }
         </script>
+
+
+        
 </head>
+
 <body>
     <div id="header"></div>
     <div id="main" role="main">
         <div id="sidebar"></div>
         <div class="archive">
-            <meta itemprop="headline" content="Chethan H N -  Projects">
+            <meta itemprop="headline" content="Chethan H N - Projects">
             <meta itemprop="description" content="Chethan H N - Projects">
-            <h2 style="font-size: x-large;"><b> Projects</b></h2>
+            <h2 style="font-size: x-large;"><b>Projects</b></h2>
             <div>
                 <button onclick="filterProjects('all')">All</button>
                 <button onclick="filterProjects('nlp')">NLP Projects</button>
@@ -78,7 +82,6 @@
         </div>
     </div>
 
-    <!-- Your scripts and closing tags -->
     <script>
         // Sample project data (replace this with your actual data)
         const projects = [
@@ -93,15 +96,16 @@
                 readLessContent: 'Shortened details and description...',
                 expanded: false // Initially, the project is not expanded
             },
-                        {
+            {
                 title: 'Adversarial ML',
                 subtitle: 'Generating Adversarial Samples for Attacks on Image Classification Systems in ML',
                 category: 'nlp',
                 libraries: ['Python', 'PyTorch', 'OpenCV'],
                 githubLink: 'https://github.com/abhinav-bohra/Adversarial-Machine-Learning',
-                readMoreContent: 'Generating Adversarial Samples for Attacks on Image Classification Systems in ML and next summary ',
-                readLessContent: ,
-                imageSrc: 'images/other-projects/advml.png'
+                imageSrc: 'images/other-projects/advml.png',
+                readMoreContent: 'Generating Adversarial Samples for Attacks on Image Classification Systems in ML and next summary',
+                readLessContent: 'Shortened details and description...',
+                expanded: false // Initially, the project is not expanded
             },
             {
                 title: 'Big Data Processing',
@@ -109,92 +113,82 @@
                 category: 'computerVision',
                 libraries: ['Python', 'PySpark', 'Scala'],
                 githubLink: 'https://github.com/abhinav-bohra/Big-Data-Processing',
-                imageSrc: 'images/other-projects/bdp.png'
+                imageSrc: 'images/other-projects/bdp.png',
+                readMoreContent: 'Full details and description about Big Data Processing...',
+                readLessContent: 'Shortened details and description...',
+                expanded: false // Initially, the project is not expanded
             }
             // Include other project objects similarly
         ];
 
-    function generateProjectCard(project) {
-        const projectCard = document.createElement('div');
-        projectCard.classList.add('col-lg-6');
-        projectCard.innerHTML = `
-            <div class="list__item">
-                <div class="card">
-                    <div class="card-content">
-                        <div class="media">
-                            <div class="media-content">
-                                <div class="row">
-                                    <div class="col-lg-9">
-                                        <p class="title is-5">
-                                            <a href="${project.githubLink}" target="_blank" rel="noopener noreferrer">${project.title}</a>
-                                        </p>
-                                        <p class="subtitle is-6">${project.subtitle}</p>
-                                    </div>
-                                    <div class="col-lg-3">
-                                        <a href="${project.githubLink}">
-                                            <img src="images/Projects/github.png" style="width:70%; height:70%; border-radius: 10px; ">
-                                        </a>
+        function generateProjectCard(project) {
+            const projectCard = document.createElement('div');
+            projectCard.classList.add('col-lg-6');
+            projectCard.innerHTML = `
+                <div class="list__item">
+                    <div class="card">
+                        <div class="card-content">
+                            <div class="media">
+                                <div class="media-content">
+                                    <div class="row">
+                                        <div class="col-lg-9">
+                                            <p class="title is-5">
+                                                <a href="${project.githubLink}" target="_blank" rel="noopener noreferrer">${project.title}</a>
+                                            </p>
+                                            <p class="subtitle is-6">${project.subtitle}</p>
+                                        </div>
+                                        <div class="col-lg-3">
+                                            <a href="${project.githubLink}">
+                                                <img src="images/Projects/github.png" style="width:70%; height:70%; border-radius: 10px; ">
+                                            </a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="content">
-                            <a href="${project.githubLink}">
-                                <img src="${project.imageSrc}" style="width:100%; height:150px; border-radius: 10px; margin-bottom: 5%;">
-                            </a>
-                            <div class="tags">
-                                ${project.libraries.map(lib => `<span class="tag">${lib}</span>`).join('')}
+                            <div class="content">
+                                <a href="${project.githubLink}">
+                                    <img src="${project.imageSrc}" style="width:100%; height:150px; border-radius: 10px; margin-bottom: 5%;">
+                                </a>
+                                <div class="tags">
+                                    ${project.libraries.map(lib => `<span class="tag">${lib}</span>`).join('')}
+                                </div>
+                                <div class="read-more-content" style="display: ${project.expanded ? 'block' : 'none'};">
+                                    ${project.readMoreContent}
+                                </div>
+                                <div class="read-less-content" style="display: ${project.expanded ? 'none' : 'block'};">
+                                    ${project.readLessContent}
+                                </div>
+                                <button class="read-more-btn" onclick="toggleContent(this, ${projects.indexOf(project)})">Read ${project.expanded ? 'Less' : 'More'}</button>
                             </div>
-                            <div class="read-more-content" style="display: ${project.expanded ? 'block' : 'none'};">
-                                ${project.readMoreContent}
-                            </div>
-                            <div class="read-less-content" style="display: ${project.expanded ? 'none' : 'block'};">
-                                ${project.readLessContent}
-                            </div>
-                            <button class="read-more-btn" onclick="toggleContent(this, ${projects.indexOf(project)})">Read ${project.expanded ? 'Less' : 'More'}</button>
                         </div>
                     </div>
                 </div>
-            </div>
-        `;
-        return projectCard;
-    }
-        function filterProjects(category) {
-            // Function to filter and display projects based on category
-            const projectsList = document.getElementById('projectsList');
-            projectsList.innerHTML = '';
+            `;
+            return projectCard;
+        }
 
+        function toggleContent(btn, projectId) {
+            projects[projectId].expanded = !projects[projectId].expanded;
+            document.getElementById('projectsList').innerHTML = '';
             projects.forEach(project => {
-                if (category === 'all' || project.category === category) {
-                    const projectCard = generateProjectCard(project);
-                    projectsList.appendChild(projectCard);
-                }
+                document.getElementById('projectsList').appendChild(generateProjectCard(project));
             });
         }
 
-        function toggleContent(btn, index) {
-            // Function to toggle read more/less content for a specific project
-            const project = projects[index];
-            project.expanded = !project.expanded;
-
-            const contentElements = document.querySelectorAll(`#projectsList .list__item:nth-child(${index + 1}) .content`);
-            contentElements.forEach(contentElement => {
-                contentElement.querySelector('.read-more-content').style.display = project.expanded ? 'block' : 'none';
-                contentElement.querySelector('.read-less-content').style.display = project.expanded ? 'none' : 'block';
+        // Function to initially render projects
+        function renderProjects() {
+            const projectsList = document.getElementById('projectsList');
+            projectsList.innerHTML = '';
+            projects.forEach(project => {
+                projectsList.appendChild(generateProjectCard(project));
             });
-
-            btn.textContent = `Read ${project.expanded ? 'Less' : 'More'}`;
         }
 
         // Initial display of all projects
-        filterProjects('all');
+        renderProjects();
     </script>
 
-    <footer class="page__meta"><br></footer>
-    </div>
-    </article>
-    </div>
-    <div id="footer"></div>
+    <!-- Footer and other closing tags -->
 </body>
 
 </html>
