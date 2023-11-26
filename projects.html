@@ -278,6 +278,10 @@
             `;
             return projectCard;
         }
+        //  For Git Hub Repo link
+        function redirectToGithub(githubLink) {
+        window.open(githubLink, '_blank');
+        }
 
         function filterProjects(category) {
             const projectsList = document.getElementById('projectsList');
