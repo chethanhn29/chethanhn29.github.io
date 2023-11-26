@@ -190,6 +190,17 @@
             `;
             return projectCard;
         }
+        
+                function filterProjects(category) {
+            const projectsList = document.getElementById('projectsList');
+            projectsList.innerHTML = '';
+
+            projects.forEach(project => {
+                if (category === 'all' || project.category === category) {
+                    projectsList.appendChild(generateProjectCard(project));
+                }
+            });
+        }
 
         function toggleContent(btn, projectId) {
             projects[projectId].expanded = !projects[projectId].expanded;
