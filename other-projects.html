@@ -164,6 +164,26 @@
             });
         });
     </script>
+        <!-- Your scripts -->
+    <script>
+        // Your existing JavaScript logic
+        // ...
+
+        // Updated JavaScript logic for "Read More" functionality
+        function toggleReadMore(btn) {
+            const content = btn.nextElementSibling; // Get the sibling element (additional content)
+            content.style.display = 'block'; // Show the additional content
+            btn.style.display = 'none'; // Hide the "Read More" button
+            btn.nextElementSibling.style.display = 'inline-block'; // Show the "Read Less" button
+        }
+
+        function toggleReadLess(btn) {
+            const content = btn.previousElementSibling; // Get the sibling element (additional content)
+            content.style.display = 'none'; // Hide the additional content
+            btn.style.display = 'none'; // Hide the "Read Less" button
+            btn.previousElementSibling.style.display = 'inline-block'; // Show the "Read More" button
+        }
+    </script>
                 <footer class="page__meta"><br></footer>
             </div>
         </article>
