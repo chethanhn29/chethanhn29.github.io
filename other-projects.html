@@ -155,32 +155,24 @@
         // Initial display of all projects
         filterProjects('all');
 
-        // JavaScript logic for "Read More" functionality
+        // JavaScript logic for "Read More" and "Read Less" functionality
         document.querySelectorAll('.read-more-btn').forEach(btn => {
             btn.addEventListener('click', () => {
-                // Implement your logic to show/hide detailed information or link to a separate page
-                console.log('Read More clicked');
-                // Add your logic here
+                const content = btn.nextElementSibling; // Get the sibling element (additional content)
+                content.style.display = 'block'; // Show the additional content
+                btn.style.display = 'none'; // Hide the "Read More" button
+                btn.nextElementSibling.style.display = 'inline-block'; // Show the "Read Less" button
             });
         });
-        <!-- Your scripts for readmore and readless -->
-        // Your existing JavaScript logic
-        // ...
 
-        // Updated JavaScript logic for "Read More" functionality
-        function toggleReadMore(btn) {
-            const content = btn.nextElementSibling; // Get the sibling element (additional content)
-            content.style.display = 'block'; // Show the additional content
-            btn.style.display = 'none'; // Hide the "Read More" button
-            btn.nextElementSibling.style.display = 'inline-block'; // Show the "Read Less" button
-        }
-
-        function toggleReadLess(btn) {
-            const content = btn.previousElementSibling; // Get the sibling element (additional content)
-            content.style.display = 'none'; // Hide the additional content
-            btn.style.display = 'none'; // Hide the "Read Less" button
-            btn.previousElementSibling.style.display = 'inline-block'; // Show the "Read More" button
-        }
+        document.querySelectorAll('.read-less-btn').forEach(btn => {
+            btn.addEventListener('click', () => {
+                const content = btn.previousElementSibling; // Get the sibling element (additional content)
+                content.style.display = 'none'; // Hide the additional content
+                btn.style.display = 'none'; // Hide the "Read Less" button
+                btn.previousElementSibling.style.display = 'inline-block'; // Show the "Read More" button
+            });
+        });
     </script>
                 <footer class="page__meta"><br></footer>
             </div>
