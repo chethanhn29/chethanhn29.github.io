@@ -65,7 +65,8 @@
             ]
         }
     </script>
-        <style>
+
+    <style>
         /* Additional CSS for grid layout and button styling */
         .row {
             display: flex;
@@ -103,11 +104,26 @@
             color: #fff;
             font-size: 14px;
             cursor: pointer;
-            transition: all 0.3s ease;
+            transition: background-color 0.3s ease;
+            outline: none;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
         }
 
         .button-container button:hover {
             background-color: #2980b9;
+        }
+
+        /* Additional button hover effect */
+        .button-container button:hover::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 25px;
+            background-color: rgba(0, 0, 0, 0.1);
+            z-index: -1;
         }
     </style>
 </head>
@@ -124,6 +140,8 @@
                 <button onclick="filterProjects('all')">All</button>
                 <button onclick="filterProjects('nlp')">NLP Projects</button>
                 <button onclick="filterProjects('computerVision')">Computer Vision Projects</button>
+                <!-- Add another button here -->
+                <!-- <button onclick="filterProjects('newCategory')">New Category Projects</button> -->
             </div>
             <div class="row" id="projectsList">
                 <!-- Projects will be dynamically added here based on category -->
