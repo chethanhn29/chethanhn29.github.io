@@ -61,34 +61,36 @@
     <style>
         /* Add this CSS for default fixed height and width of project cards */
         .list__item {
-            height: 800px; /* Define the fixed height for collapsed projects */
-            width: 400px; /* Define the fixed width for collapsed projects */
-            margin-bottom: 5px; /* Adjust margin as needed */
+            width: 800px; /* Fixed width for collapsed projects */
+            margin: 450px; /* Margin between projects */
+            border: 1px solid #ccc; /* Add borders for better visualization */
             overflow: hidden; /* Hide overflow content */
+            transition: all 0.3s ease; /* Transition effect */
         }
 
         .card {
-            height: 100%;
             width: 100%;
             /* Add other card styles as per your design */
         }
 
         .content {
-            height: calc(100% - 50px); /* Set a fixed height for the content section */
+            height: 150px; /* Set a fixed height for the content section */
             overflow: hidden;
-            margin-bottom: 10px; /* Adjust the bottom margin for content */
+            margin-bottom: 10px; /* Bottom margin for content */
         }
 
-        .read-more-content,
-        .read-less-content {
-            display: none; /* Initially hide the expanded and collapsed content */
+        .read-more-content {
+            display: none; /* Initially hide the expanded content */
+            height: auto; /* Auto height for expanded content */
+            overflow: visible; /* Show overflow content for expanded content */
         }
 
-        .expanded .read-more-content {
-            display: block; /* Show expanded content when the project is expanded */
+        .expanded {
+            width: calc(100% - 40px); /* Adjust width for expanded project */
+            margin: 20px; /* Margin for expanded project */
         }
 
-        .expanded .read-less-content {
+        .expanded .content {
             display: none; /* Hide collapsed content when the project is expanded */
         }
     </style>
