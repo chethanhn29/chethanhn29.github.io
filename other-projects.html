@@ -73,8 +73,22 @@
             /* Add other card styles as per your design */
         }
 
-        .read-more-content {
-            display: none; /* Initially hide the expanded content */
+        .content {
+            height: 80%; /* Set a fixed height for the content section */
+            overflow: hidden;
+        }
+
+        .read-more-content,
+        .read-less-content {
+            display: none; /* Initially hide the expanded and collapsed content */
+        }
+
+        .expanded .read-more-content {
+            display: block; /* Show expanded content when the project is expanded */
+        }
+
+        .expanded .read-less-content {
+            display: none; /* Hide collapsed content when the project is expanded */
         }
     </style>
      
