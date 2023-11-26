@@ -159,25 +159,35 @@
         `;
         return projectCard;
     }
-        function toggleContent(btn, projectId) {
-            projects[projectId].expanded = !projects[projectId].expanded;
-            document.getElementById('projectsList').innerHTML = '';
+        function filterProjects(category) {
+            // Function to filter and display projects based on category
+            const projectsList = document.getElementById('projectsList');
+            projectsList.innerHTML = '';
+
             projects.forEach(project => {
-                document.getElementById('projectsList').appendChild(generateProjectCard(project));
+                if (category === 'all' || project.category === category) {
+                    const projectCard = generateProjectCard(project);
+                    projectsList.appendChild(projectCard);
+                }
             });
         }
 
-        // Function to initially render projects
-        function renderProjects() {
-            const projectsList = document.getElementById('projectsList');
-            projectsList.innerHTML = '';
-            projects.forEach(project => {
-                projectsList.appendChild(generateProjectCard(project));
+        function toggleContent(btn, index) {
+            // Function to toggle read more/less content for a specific project
+            const project = projects[index];
+            project.expanded = !project.expanded;
+
+            const contentElements = document.querySelectorAll(`#projectsList .list__item:nth-child(${index + 1}) .content`);
+            contentElements.forEach(contentElement => {
+                contentElement.querySelector('.read-more-content').style.display = project.expanded ? 'block' : 'none';
+                contentElement.querySelector('.read-less-content').style.display = project.expanded ? 'none' : 'block';
             });
+
+            btn.textContent = `Read ${project.expanded ? 'Less' : 'More'}`;
         }
 
         // Initial display of all projects
-        renderProjects();
+        filterProjects('all');
     </script>
 
     <footer class="page__meta"><br></footer>
