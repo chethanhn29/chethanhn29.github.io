@@ -133,6 +133,34 @@
             height: 0;
             background-color: rgba(255, 255, 255, 0.3);
         }
+
+                /* Style for the "Read more" button */
+        .read-more-btn {
+            padding: 8px 16px;
+            border: 1px solid #333;
+            background-color: #f5f5f5;
+            color: #333;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .read-more-btn:hover {
+            background-color: #e0e0e0;
+        }
+
+        /* Style for the "Github Repo" button */
+        .github-button {
+            padding: 8px 16px;
+            border: 1px solid #333;
+            background-color: #24292e; /* GitHub color */
+            color: #fff;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+    }
+
+    .github-button:hover {
+        background-color: #444;
+    }
     </style>
 </head>
 
@@ -242,6 +270,7 @@
                                     ${project.readLessContent}
                                 </div>
                                 <button class="read-more-btn" onclick="toggleContent(this, ${projects.indexOf(project)})">Read ${project.expanded ? 'Less' : 'More'}</button>
+                                <button class="github-button" onclick="redirectToGithub('${project.githubLink}')">Github Repo</button>
                             </div>
                         </div>
                     </div>
