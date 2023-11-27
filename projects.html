@@ -304,28 +304,24 @@
             projectsList.innerHTML = '';
 
             sortedIds.forEach(projectId => {
-                const project = projects.find(proj => proj.id === projectId && proj.category.includes(currentCategory));
+                let project = projects.find(proj => proj.id === projectId && proj.category.includes(currentCategory));
+
+                if (!project) {
+                    // If the project ID does not belong to the current category, find the next valid project
+                    let currentIndex = sortedIds.indexOf(projectId) + 1;
+
+                    while (!project && currentIndex < sortedIds.length) {
+                        const nextProjectId = sortedIds[currentIndex];
+                        project = projects.find(proj => proj.id === nextProjectId && proj.category.includes(currentCategory));
+                        currentIndex++;
+                    }
+                }
 
                 if (project) {
                     projectsList.appendChild(generateProjectCard(project));
-                } else {
-                    // If the project does not match the current category, find the next valid project
-                    let nextValidProject = null;
-                    let currentIndex = sortedIds.indexOf(projectId) + 1;
-
-                    while (!nextValidProject && currentIndex < sortedIds.length) {
-                        const nextProjectId = sortedIds[currentIndex];
-                        nextValidProject = projects.find(proj => proj.id === nextProjectId && proj.category.includes(currentCategory));
-                        currentIndex++;
-                    }
-
-                    if (nextValidProject) {
-                        projectsList.appendChild(generateProjectCard(nextValidProject));
-                    }
                 }
             });
         }
-
         // Function to toggle content
         function toggleContent(btn, projectId) {
             projects[projectId].expanded = !projects[projectId].expanded;
