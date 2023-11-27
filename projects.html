@@ -291,26 +291,22 @@
 
             function toggleContent(btn, projectId) {
             const project = projects.find(proj => proj.id === projectId);
-            const readMoreContent = btn.parentElement.querySelector('.read-more-content');
-            const readLessContent = btn.parentElement.querySelector('.read-less-content');
+            const projectCard = btn.closest('.list__item');
+            const readMoreContent = projectCard.querySelector('.read-more-content');
+            const readLessContent = projectCard.querySelector('.read-less-content');
 
             project.expanded = !project.expanded;
 
             if (project.expanded) {
                 readMoreContent.style.display = 'block';
-                if (readLessContent) {
-                    readLessContent.style.display = 'none';
-                }
+                readLessContent.style.display = 'none';
                 btn.textContent = 'Read Less';
             } else {
                 readMoreContent.style.display = 'none';
-                if (readLessContent) {
-                    readLessContent.style.display = 'block';
-                }
+                readLessContent.style.display = 'block';
                 btn.textContent = 'Read More';
             }
         }
-
 
         // Function to render projects based on the specified sorting array
         function renderProjects(sortedIds) {
