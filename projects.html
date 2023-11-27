@@ -247,7 +247,7 @@
             id: 1,
             title: 'Automated Water Bottle Level Classification',
             subtitle: 'Developing an image classification model to identify water levels in bottles using TensorFlow and CNN.',
-            libraries: ['TensorFlow', 'Gradio', 'CNN', 'Image Processing',"keras"],
+            libraries: ['TensorFlow',"OpenCV" , 'CNN', 'Image Processing',"keras",'Gradio'],
             githubLink: 'https://github.com/chethanhn29/Water_bottle_classication_model',
             imageSrc: 'images/Projects/water_bottle_image_classification.jpg',
             readMoreContent: `
@@ -279,14 +279,58 @@
                         <span class="tag">TensorFlow</span>
                         <span class="tag">Keras</span>
                         <span class="tag">Gradio</span>
-                        <span class="tag">Kaggle</span>
+                        <span class="tag">OpenCV</span>
                     </div>
                 </div>
             </div> `,           
             
-    readLessContent: "",
+            readLessContent: "",
             expanded: false // Initially, the project is not expanded
-            }
+            },
+
+
+                    {
+            id: 2,
+            title: 'Rice Leaf Disease Detection Using CNN',
+            subtitle: 'Objective: To detect rice leaf disease through image analysis using CNN with Keras and TensorFlow.',
+            libraries: ['Keras', 'TensorFlow', 'OpenCV'],
+            githubLink: 'https://github.com/chethanhn29/Rice-Leaf-disease-detection', // Insert your GitHub link here
+            imageSrc: 'images/Projects/Rice_Leaf_Disease_Detection.png',
+            readMoreContent: `
+                <div class="project-description">
+                    <h2>Rice Leaf Disease Detection with CNN</h2>
+                    <p>
+                        Rice Leaf Disease Detection Using CNN is a project dedicated to identifying diseases in rice leaves through image analysis. The project employs Convolutional Neural Networks (CNN) with Keras and TensorFlow for accurate disease detection.
+                    </p>
+                    <div class="project-highlights">
+                        <h3>Project Highlights:</h3>
+                        <ul>
+                            <li>🌾 Detects rice leaf diseases via image analysis</li>
+                            <li>🚀 Utilizes CNN with Keras and TensorFlow</li>
+                            <li>📊 Implements OpenCV for image preprocessing</li>
+                        </ul>
+                    </div>
+                    <div class="project-image">
+                        <img src="images/Projects/Rice_Leaf_Image_model_arch.png" alt="Rice Leaf Image">
+                    </div>
+                    <p>
+                        The project workflow is segmented into distinct stages, including data loading, dataset preparation, label mapping using JSON, data preprocessing, model building, and training.
+                    </p>
+                    <div class="project-tags">
+                        <h3>Project Tags:</h3>
+                        <div class="tags">
+                            <span class="tag">Image Classification</span>
+                            <span class="tag">CNN</span>
+                            <span class="tag">TensorFlow</span>
+                            <span class="tag">Keras</span>
+                            <span class="tag">OpenCV</span>
+                        </div>
+                    </div>
+                </div>
+            `,
+            readLessContent: "",
+            expanded: false // Initially, the project is not expanded
+        }
 
             // Include other project objects similarly
         ];
@@ -383,9 +427,9 @@
         // Function to filter projects based on category button and its sorting
         function filterProjects(category) {
             const categoryButtonSorts = {
-                'all': [0,1], // Replace with your actual IDs for 'all' category
+                'all': [0,1,2], // Replace with your actual IDs for 'all' category
                 'nlp': [0], // Replace with your actual IDs for 'nlp' category
-                'computerVision': [1], // Replace with your actual IDs for 'computerVision' category
+                'computerVision': [1,2], // Replace with your actual IDs for 'computerVision' category
                 'llm': [0] // Replace with your actual IDs for 'llm' category
             };
 
