@@ -192,6 +192,7 @@
     <script>
         // Sample project data (replace this with your actual data)
         const projects = [{
+                id: 1,
                 title: 'Retail-Query-Chatbot using LLM',
                 subtitle: 'Implementation of end-to-end language model tool that can handle complex natural language queries for a t-shirt store\'s MySQL database.',
                 category: ['nlp',"llm"],
@@ -210,6 +211,7 @@
                 expanded: false // Initially, the project is not expanded
             },
             {
+                id: 2,
                 title: 'Adversarial ML',
                 subtitle: 'Generating Adversarial Samples for Attacks on Image Classification Systems in ML',
                 category: 'nlp',
@@ -221,6 +223,7 @@
                 expanded: false // Initially, the project is not expanded
             },
             {
+                id: 3,
                 title: 'Big Data Processing',
                 subtitle: 'Exploring and Implementing Scalable Data Processing Techniques',
                 category: 'computerVision',
@@ -280,20 +283,27 @@
             `;
             return projectCard;
         }
+
+
+        // Arrays of project IDs sorted for each category button
+        const allButtonSort = [3, 5, 2]; // IDs for all button
+        const nlpButtonSort = [4, 6, 1]; // IDs for nlp button
+        const computerVisionButtonSort = [5, 1, 3]; // IDs for computer vision button
+
+
         //  For Git Hub Repo link
         function redirectToGithub(githubLink) {
         window.open(githubLink, '_blank');
         }
 
-         // Function to filter projects based on category
-         function filterProjects(category) {
+        // Function to filter projects based on category button and its sorting
+        function filterProjects(sortedIds) {
             const projectsList = document.getElementById('projectsList');
             projectsList.innerHTML = '';
 
-            projects.forEach(project => {
-                if (category === 'all' || project.categories.includes(category)) {
-                    projectsList.appendChild(generateProjectCard(project));
-                }
+            sortedIds.forEach(projectId => {
+                const project = projects.find(proj => proj.id === projectId);
+                projectsList.appendChild(generateProjectCard(project));
             });
         }
 
@@ -308,18 +318,36 @@
             });
         }
 
-        // Function to initially render projects
+
+
+        // Function to render projects initially based on all button sorting
         function renderProjects() {
             const projectsList = document.getElementById('projectsList');
             projectsList.innerHTML = '';
 
-            projects.forEach(project => {
+            allButtonSort.forEach(projectId => {
+                const project = projects.find(proj => proj.id === projectId);
                 projectsList.appendChild(generateProjectCard(project));
             });
         }
 
-        // Initial display of all projects
-        renderProjects();
+       // Initial display of all projects
+       renderProjects();
+
+
+        // Create buttons dynamically
+        const buttonContainer = document.querySelector('.button-container');
+        const categories = ['all', 'nlp', 'computerVision']; // Update with your categories
+        const categoryButtonSorts = [allButtonSort, nlpButtonSort, computerVisionButtonSort];
+
+        categories.forEach((category, index) => {
+            const btn = document.createElement('button');
+            btn.textContent = category.charAt(0).toUpperCase() + category.slice(1);
+            btn.onclick = () => filterProjects(categoryButtonSorts[index]);
+            btn.style.order = index + 1; // Assign the order
+            buttonContainer.appendChild(btn);
+        });
+});
     </script>
 
     <!-- Footer and other closing tags -->
