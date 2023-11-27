@@ -286,9 +286,11 @@
 
 
         // Arrays of project IDs sorted for each category button
-        const allButtonSort = [3, 5, 2]; // IDs for all button
-        const nlpButtonSort = [4, 6, 1]; // IDs for nlp button
-        const computerVisionButtonSort = [5, 1, 3]; // IDs for computer vision button
+        const allButtonSort = [1, 2, 3]; // IDs for all button
+        const nlpButtonSort = [2, 3, 1]; // IDs for nlp button
+        const computerVisionButtonSort = [1, 2, 3]; // IDs for computer vision button
+        const llmButtonSort = [2,1, 3]; // IDs for computer vision button
+
 
 
         //  For Git Hub Repo link
@@ -302,8 +304,25 @@
             projectsList.innerHTML = '';
 
             sortedIds.forEach(projectId => {
-                const project = projects.find(proj => proj.id === projectId);
-                projectsList.appendChild(generateProjectCard(project));
+                const project = projects.find(proj => proj.id === projectId && proj.category.includes(currentCategory));
+
+                if (project) {
+                    projectsList.appendChild(generateProjectCard(project));
+                } else {
+                    // If the project does not match the current category, find the next valid project
+                    let nextValidProject = null;
+                    let currentIndex = sortedIds.indexOf(projectId) + 1;
+
+                    while (!nextValidProject && currentIndex < sortedIds.length) {
+                        const nextProjectId = sortedIds[currentIndex];
+                        nextValidProject = projects.find(proj => proj.id === nextProjectId && proj.category.includes(currentCategory));
+                        currentIndex++;
+                    }
+
+                    if (nextValidProject) {
+                        projectsList.appendChild(generateProjectCard(nextValidProject));
+                    }
+                }
             });
         }
 
