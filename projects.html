@@ -285,22 +285,26 @@
         window.open(githubLink, '_blank');
         }
 
-        function filterProjects(category) {
-        const projectsList = document.getElementById('projectsList');
-        projectsList.innerHTML = '';
+         // Function to filter projects based on category
+         function filterProjects(category) {
+            const projectsList = document.getElementById('projectsList');
+            projectsList.innerHTML = '';
 
-        projects.forEach(project => {
-            if (category === 'all' || project.categories.includes(category)) {
-                projectsList.appendChild(generateProjectCard(project));
-            }
-        });
+            projects.forEach(project => {
+                if (category === 'all' || project.categories.includes(category)) {
+                    projectsList.appendChild(generateProjectCard(project));
+                }
+            });
         }
 
+        // Function to toggle content
         function toggleContent(btn, projectId) {
             projects[projectId].expanded = !projects[projectId].expanded;
-            document.getElementById('projectsList').innerHTML = '';
+            const projectsList = document.getElementById('projectsList');
+            projectsList.innerHTML = '';
+
             projects.forEach(project => {
-                document.getElementById('projectsList').appendChild(generateProjectCard(project));
+                projectsList.appendChild(generateProjectCard(project));
             });
         }
 
@@ -308,6 +312,7 @@
         function renderProjects() {
             const projectsList = document.getElementById('projectsList');
             projectsList.innerHTML = '';
+
             projects.forEach(project => {
                 projectsList.appendChild(generateProjectCard(project));
             });
