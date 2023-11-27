@@ -294,18 +294,20 @@
             window.open(githubLink, '_blank');
         }
 
-        function filterProjects(sortedIds, currentCategory) {
+        // Function to filter projects based on category button and its sorting
+        function filterProjects(sortedIds) {
             const projectsList = document.getElementById('projectsList');
             projectsList.innerHTML = '';
 
             sortedIds.forEach(projectId => {
-                const project = projects.find(proj => proj.id === projectId && proj.category.includes(currentCategory));
+                const project = projects.find(proj => proj.id === projectId);
                 if (project) {
                     projectsList.appendChild(generateProjectCard(project));
                 }
             });
         }
 
+                // Function to toggle content
         function toggleContent(btn, projectId) {
             projects[projectId].expanded = !projects[projectId].expanded;
             const projectsList = document.getElementById('projectsList');
@@ -316,34 +318,40 @@
             });
         }
 
-        function renderProjects() {
-            const projectsList = document.getElementById('projectsList');
-            projectsList.innerHTML = '';
+            // Initial display of all projects based on all button sorting
+            function renderProjects() {
+                const projectsList = document.getElementById('projectsList');
+                projectsList.innerHTML = '';
 
-            allButtonSort.forEach(projectId => {
-                const project = projects.find(proj => proj.id === projectId);
-                projectsList.appendChild(generateProjectCard(project));
+                allButtonSort.forEach(projectId => {
+                    const project = projects.find(proj => proj.id === projectId);
+                    if (project) {
+                        projectsList.appendChild(generateProjectCard(project));
+                    }
+                });
+            }
+
+            // Call the renderProjects function initially
+            renderProjects();
+
+        // Create buttons dynamically
+        document.addEventListener('DOMContentLoaded', () => {
+            const buttonContainer = document.querySelector('.button-container');
+            const categories = ['all', 'nlp', 'computerVision', 'llm']; // Update with your categories
+            const categoryButtonSorts = [
+                allButtonSort,
+                nlpButtonSort,
+                computerVisionButtonSort,
+                llmButtonSort
+            ];
+
+            categories.forEach((category, index) => {
+                const btn = document.createElement('button');
+                btn.textContent = category.charAt(0).toUpperCase() + category.slice(1);
+                btn.onclick = () => filterProjects(categoryButtonSorts[index]);
+                buttonContainer.appendChild(btn);
             });
-        }
-
-        renderProjects();
-
-        const buttonContainer = document.querySelector('.button-container');
-        const categories = ['all', 'nlp', 'computerVision', 'llm']; // Update with your categories
-        const categoryButtonSorts = [
-            allButtonSort,
-            nlpButtonSort,
-            computerVisionButtonSort,
-            llmButtonSort
-        ];
-
-        categories.forEach((category, index) => {
-            const btn = document.createElement('button');
-            btn.textContent = category.charAt(0).toUpperCase() + category.slice(1);
-            btn.onclick = () => filterProjects(categoryButtonSorts[index], category);
-            buttonContainer.appendChild(btn);
         });
-
  
     </script>
 
