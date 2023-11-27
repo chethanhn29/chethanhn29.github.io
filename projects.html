@@ -289,25 +289,19 @@
             window.open(githubLink, '_blank');
         }
 
-        // Function to toggle content between read more and read less
-        function toggleContent(btn, projectId) {
+            function toggleContent(btn, projectId) {
             const project = projects.find(proj => proj.id === projectId);
             const readMoreContent = btn.parentElement.querySelector('.read-more-content');
             const readLessContent = btn.parentElement.querySelector('.read-less-content');
 
             project.expanded = !project.expanded;
 
-            if (project.expanded) {
-                readMoreContent.style.display = 'block';
-                readLessContent.style.display = 'none';
-                btn.textContent = 'Read Less';
-            } else {
-                readMoreContent.style.display = 'none';
-                readLessContent.style.display = 'block';
-                btn.textContent = 'Read More';
-            }
+            readMoreContent.style.display = project.expanded ? 'block' : 'none';
+            readLessContent.style.display = project.expanded ? 'none' : 'block';
+            btn.textContent = project.expanded ? 'Read Less' : 'Read More';
         }
 
+        
         // Function to render projects based on the specified sorting array
         function renderProjects(sortedIds) {
             const projectsList = document.getElementById('projectsList');
