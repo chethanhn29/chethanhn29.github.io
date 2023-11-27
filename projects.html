@@ -191,7 +191,9 @@
 
     <script>
         // Sample project data (replace this with your actual data)
-        const projects = [{
+        const projects = [
+        
+        {
                 id: 0,
                 title: 'Retail-Query-Chatbot using LLM',
                 subtitle: 'Implementation of end-to-end language model tool that can handle complex natural language queries for a t-shirt store\'s MySQL database.',
@@ -210,30 +212,20 @@
                 readLessContent: "",
                 expanded: false // Initially, the project is not expanded
             },
+
+
             {
-                id: 1,
-                title: 'Adversarial ML',
-                subtitle: 'Generating Adversarial Samples for Attacks on Image Classification Systems in ML',
-                //category: 'nlp',
-                libraries: ['Python', 'PyTorch', 'OpenCV'],
-                githubLink: 'https://github.com/abhinav-bohra/Adversarial-Machine-Learning',
-                imageSrc: 'images/other-projects/advml.png',
-                readMoreContent: 'Generating Adversarial Samples for Attacks on Image Classification Systems in ML and next summary',
-                readLessContent: 'Shortened details and description...',
-                expanded: false // Initially, the project is not expanded
-            },
-            {
-                id: 2,
-                title: 'Big Data Processing',
-                subtitle: 'Exploring and Implementing Scalable Data Processing Techniques',
-                //category: 'computerVision',
-                libraries: ['Python', 'PySpark', 'Scala'],
-                githubLink: 'https://github.com/abhinav-bohra/Big-Data-Processing',
-                imageSrc: 'images/other-projects/bdp.png',
-                readMoreContent: 'Full details and description about Big Data Processing...',
-                readLessContent: 'Shortened details and description...',
-                expanded: false // Initially, the project is not expanded
+            id: 1,
+            title: 'Automated Water Bottle Level Classification',
+            subtitle: 'Developing an image classification model to identify water levels in bottles using TensorFlow and CNN.',
+            libraries: ['TensorFlow', 'Gradio', 'CNN', 'Image Processing',"keras"],
+            githubLink: 'https://github.com/chethanhn29/Water_bottle_classication_model',
+            imageSrc: 'images/Projects/water_bottle_image_classification.jpg',
+            readMoreContent: '<p> Automated Water Bottle Level Classification is a project aimed at creating an intelligent system capable of categorizing water bottle levels as "Full," "Half," or "Overflowing." The project utilizes TensorFlow and Keras to implement a Convolutional Neural Network (CNN) for accurate image classification.</p>',
+            readLessContent: "",
+            expanded: false // Initially, the project is not expanded
             }
+
             // Include other project objects similarly
         ];
 
@@ -329,9 +321,9 @@
         // Function to filter projects based on category button and its sorting
         function filterProjects(category) {
             const categoryButtonSorts = {
-                'all': [0,1, 2], // Replace with your actual IDs for 'all' category
-                'nlp': [1, 0], // Replace with your actual IDs for 'nlp' category
-                'computerVision': [2], // Replace with your actual IDs for 'computerVision' category
+                'all': [0,1], // Replace with your actual IDs for 'all' category
+                'nlp': [0], // Replace with your actual IDs for 'nlp' category
+                'computerVision': [1], // Replace with your actual IDs for 'computerVision' category
                 'llm': [0] // Replace with your actual IDs for 'llm' category
             };
 
