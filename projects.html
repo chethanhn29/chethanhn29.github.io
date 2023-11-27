@@ -284,9 +284,8 @@
             return projectCard;
             }
 
-
-                // Function to open GitHub link in a new tab
-                function redirectToGithub(githubLink) {
+        // Function to open GitHub link in a new tab
+        function redirectToGithub(githubLink) {
             window.open(githubLink, '_blank');
         }
 
@@ -310,15 +309,12 @@
         }
 
         // Function to render projects based on the specified sorting array
-        function renderProjects(sortedIds) {
+        function renderProjects(projectsToRender) {
             const projectsList = document.getElementById('projectsList');
             projectsList.innerHTML = '';
 
-            sortedIds.forEach(projectId => {
-                const project = projects.find(proj => proj.id === projectId);
-                if (project) {
-                    projectsList.appendChild(generateProjectCard(project));
-                }
+            projectsToRender.forEach(project => {
+                projectsList.appendChild(generateProjectCard(project));
             });
         }
 
@@ -331,8 +327,9 @@
                 'llm': [1, 2, 3] // Replace with your actual IDs for 'llm' category
             };
 
-            const sortedIds = categoryButtonSorts[category];
-            renderProjects(sortedIds);
+            const projectIds = categoryButtonSorts[category];
+            const filteredProjects = projects.filter(project => projectIds.includes(project.id));
+            renderProjects(filteredProjects);
         }
 
         // Initial render of projects based on 'all' category sorting
