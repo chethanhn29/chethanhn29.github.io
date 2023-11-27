@@ -195,7 +195,7 @@
                 id: 1,
                 title: 'Retail-Query-Chatbot using LLM',
                 subtitle: 'Implementation of end-to-end language model tool that can handle complex natural language queries for a t-shirt store\'s MySQL database.',
-                category: ['nlp',"llm"],
+                //category: ['nlp',"llm"],
                 libraries: ['Langchain', 'Python', 'LLM', 'SQL', 'VectorDB', 'Streamlit', 'Hugging face'],
                 githubLink: 'https://github.com/chethanhn29/Retail-Query-Assistant-Langchain-Google-Palm-LLM-',
                 imageSrc: 'images/Projects/Retail_Query_Assistant.png',
@@ -214,7 +214,7 @@
                 id: 2,
                 title: 'Adversarial ML',
                 subtitle: 'Generating Adversarial Samples for Attacks on Image Classification Systems in ML',
-                category: 'nlp',
+                //category: 'nlp',
                 libraries: ['Python', 'PyTorch', 'OpenCV'],
                 githubLink: 'https://github.com/abhinav-bohra/Adversarial-Machine-Learning',
                 imageSrc: 'images/other-projects/advml.png',
@@ -226,7 +226,7 @@
                 id: 3,
                 title: 'Big Data Processing',
                 subtitle: 'Exploring and Implementing Scalable Data Processing Techniques',
-                category: 'computerVision',
+                //category: 'computerVision',
                 libraries: ['Python', 'PySpark', 'Scala'],
                 githubLink: 'https://github.com/abhinav-bohra/Big-Data-Processing',
                 imageSrc: 'images/other-projects/bdp.png',
@@ -325,17 +325,18 @@
                 }
             });
         }
+        }
 
         // Function to filter projects based on category button and its sorting
         function filterProjects(category) {
             const categoryButtonSorts = {
                 'all': [1, 2, 3], // Replace with your actual IDs for 'all' category
-                'nlp': [2,1], // Replace with your actual IDs for 'nlp' category
+                'nlp': [2, 1], // Replace with your actual IDs for 'nlp' category
                 'computerVision': [3], // Replace with your actual IDs for 'computerVision' category
                 'llm': [1] // Replace with your actual IDs for 'llm' category
             };
 
-            const sortedIds = categoryButtonSorts[category];
+            const sortedIds = categoryButtonSorts[category] || []; // Get sorted IDs for the specified category
             renderProjects(sortedIds);
         }
 
