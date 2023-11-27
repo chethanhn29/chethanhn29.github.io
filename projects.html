@@ -192,7 +192,7 @@
     <script>
         // Sample project data (replace this with your actual data)
         const projects = [{
-                id: 1,
+                id: 0,
                 title: 'Retail-Query-Chatbot using LLM',
                 subtitle: 'Implementation of end-to-end language model tool that can handle complex natural language queries for a t-shirt store\'s MySQL database.',
                 //category: ['nlp',"llm"],
@@ -211,7 +211,7 @@
                 expanded: false // Initially, the project is not expanded
             },
             {
-                id: 2,
+                id: 1,
                 title: 'Adversarial ML',
                 subtitle: 'Generating Adversarial Samples for Attacks on Image Classification Systems in ML',
                 //category: 'nlp',
@@ -223,7 +223,7 @@
                 expanded: false // Initially, the project is not expanded
             },
             {
-                id: 3,
+                id: 2,
                 title: 'Big Data Processing',
                 subtitle: 'Exploring and Implementing Scalable Data Processing Techniques',
                 //category: 'computerVision',
@@ -329,10 +329,10 @@
         // Function to filter projects based on category button and its sorting
         function filterProjects(category) {
             const categoryButtonSorts = {
-                'all': [1, 2, 3], // Replace with your actual IDs for 'all' category
-                'nlp': [2, 1], // Replace with your actual IDs for 'nlp' category
-                'computerVision': [3], // Replace with your actual IDs for 'computerVision' category
-                'llm': [1] // Replace with your actual IDs for 'llm' category
+                'all': [0,1, 2], // Replace with your actual IDs for 'all' category
+                'nlp': [1, 0], // Replace with your actual IDs for 'nlp' category
+                'computerVision': [2], // Replace with your actual IDs for 'computerVision' category
+                'llm': [0] // Replace with your actual IDs for 'llm' category
             };
 
             const sortedIds = categoryButtonSorts[category] || []; // Get sorted IDs for the specified category
