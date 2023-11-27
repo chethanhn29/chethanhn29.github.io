@@ -174,9 +174,11 @@
             <h2 style="font-size: x-large;"><b>Projects</b></h2>
             <br> <!-- Line break added here -->
             <div class="button-container">
-                <button onclick="filterProjects('all')">All</button>
+                <button onclick="filterProjects('all')">All </button>
                 <button onclick="filterProjects('nlp')">NLP Projects</button>
                 <button onclick="filterProjects('computerVision')">Computer Vision Projects</button>
+                <button onclick="filterProjects('llm')">LLM Projects</button>
+
                 <!-- Add another button here -->
                 <!-- <button onclick="filterProjects('newCategory')">New Category Projects</button> -->
             </div>
@@ -192,7 +194,7 @@
         const projects = [{
                 title: 'Retail-Query-Chatbot using LLM',
                 subtitle: 'Implementation of end-to-end language model tool that can handle complex natural language queries for a t-shirt store\'s MySQL database.',
-                category: 'nlp',
+                category: ['nlp',"llm"],
                 libraries: ['Langchain', 'Python', 'LLM', 'SQL', 'VectorDB', 'Streamlit', 'Hugging face'],
                 githubLink: 'https://github.com/chethanhn29/Retail-Query-Assistant-Langchain-Google-Palm-LLM-',
                 imageSrc: 'images/Projects/Retail_Query_Assistant.png',
@@ -284,15 +286,15 @@
         }
 
         function filterProjects(category) {
-            const projectsList = document.getElementById('projectsList');
-            projectsList.innerHTML = '';
+        const projectsList = document.getElementById('projectsList');
+        projectsList.innerHTML = '';
 
-            projects.forEach(project => {
-                if (category === 'all' || project.category === category) {
-                    projectsList.appendChild(generateProjectCard(project));
-                }
-            });
-        }
+        projects.forEach(project => {
+            if (category === 'all' || project.categories.includes(category)) {
+                projectsList.appendChild(generateProjectCard(project));
+            }
+        });
+
 
         function toggleContent(btn, projectId) {
             projects[projectId].expanded = !projects[projectId].expanded;
