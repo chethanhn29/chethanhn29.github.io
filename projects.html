@@ -289,14 +289,18 @@
             window.open(githubLink, '_blank');
         }
 
-            function toggleContent(btn, projectId) {
+        function toggleContent(btn, projectId) {
             const project = projects.find(proj => proj.id === projectId);
             const projectCard = btn.closest('.list__item');
+
+            // Toggling the 'expanded' state for the project
+            project.expanded = !project.expanded;
+
+            // Selecting the elements for 'Read More' and 'Read Less' content
             const readMoreContent = projectCard.querySelector('.read-more-content');
             const readLessContent = projectCard.querySelector('.read-less-content');
 
-            project.expanded = !project.expanded;
-
+            // Displaying the appropriate content based on the 'expanded' state
             if (project.expanded) {
                 readMoreContent.style.display = 'block';
                 readLessContent.style.display = 'none';
@@ -307,6 +311,7 @@
                 btn.textContent = 'Read More';
             }
         }
+
 
         // Function to render projects based on the specified sorting array
         function renderProjects(sortedIds) {
