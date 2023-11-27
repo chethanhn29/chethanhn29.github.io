@@ -284,8 +284,8 @@
             return projectCard;
             }
 
-        // Function to open GitHub link in a new tab
-        function redirectToGithub(githubLink) {
+                // Function to open GitHub link in a new tab
+                function redirectToGithub(githubLink) {
             window.open(githubLink, '_blank');
         }
 
@@ -307,13 +307,17 @@
                 btn.textContent = 'Read More';
             }
         }
+
         // Function to render projects based on the specified sorting array
-        function renderProjects(projectsToRender) {
+        function renderProjects(sortedIds) {
             const projectsList = document.getElementById('projectsList');
             projectsList.innerHTML = '';
 
-            projectsToRender.forEach(project => {
-                projectsList.appendChild(generateProjectCard(project));
+            sortedIds.forEach(projectId => {
+                const project = projects.find(proj => proj.id === projectId);
+                if (project) {
+                    projectsList.appendChild(generateProjectCard(project));
+                }
             });
         }
 
@@ -321,14 +325,13 @@
         function filterProjects(category) {
             const categoryButtonSorts = {
                 'all': [1, 2, 3], // Replace with your actual IDs for 'all' category
-                'nlp': [2, 3, 1], // Replace with your actual IDs for 'nlp' category
-                'computerVision': [3, 1, 2], // Replace with your actual IDs for 'computerVision' category
-                'llm': [1, 2, 3] // Replace with your actual IDs for 'llm' category
+                'nlp': [2,1], // Replace with your actual IDs for 'nlp' category
+                'computerVision': [3], // Replace with your actual IDs for 'computerVision' category
+                'llm': [1] // Replace with your actual IDs for 'llm' category
             };
 
-            const projectIds = categoryButtonSorts[category];
-            const filteredProjects = projects.filter(project => projectIds.includes(project.id));
-            renderProjects(filteredProjects);
+            const sortedIds = categoryButtonSorts[category];
+            renderProjects(sortedIds);
         }
 
         // Initial render of projects based on 'all' category sorting
