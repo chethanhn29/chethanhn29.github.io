@@ -295,15 +295,17 @@
             const readMoreContent = btn.parentElement.querySelector('.read-more-content');
             const readLessContent = btn.parentElement.querySelector('.read-less-content');
 
-            // Logging to check if project with ID 1 is being found
-            console.log(project);
+            project.expanded = !project.expanded;
 
-            // Logging the readMoreContent and readLessContent to check their existence and values
-            console.log(readMoreContent);
-            console.log(readLessContent);
-
-            // Ensure the correct elements are being targeted and toggled
-            // Add console logs or debugging statements here to check the logic
+            if (project.expanded) {
+                readMoreContent.style.display = 'block';
+                readLessContent.style.display = 'none';
+                btn.textContent = 'Read Less';
+            } else {
+                readMoreContent.style.display = 'none';
+                readLessContent.style.display = 'block';
+                btn.textContent = 'Read More';
+            }
         }
         // Function to render projects based on the specified sorting array
         function renderProjects(projectsToRender) {
