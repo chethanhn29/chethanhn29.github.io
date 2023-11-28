@@ -336,14 +336,14 @@
             id: 3,
             title: 'AI-Driven Real-Time Anomaly Detection for Endpoint Security',
             subtitle: 'Advanced behavioral AI models for real-time anomaly detection and threat identification at Endpoints/Users using Host and Network Logs data.',
-            libraries: ['Python', 'PyTorch', 'TensorFlow', 'SQL', 'Docker',"NLP"],
+            libraries: ['Python', 'PyTorch', 'TensorFlow', 'SQL', 'Docker', 'NLP'],
             githubLink: 'https://github.com/chethanhn29/Real_time_Anomaly_Detection_for_Endpoint_Security',
             imageSrc: 'images/Projects/Anomaly_Detection_Main.jpg', // Main image URL
             readMoreContent: `
             <div class="project-description">
                 <h2>Enhancing Endpoint Security!</h2>
                 <p>
-                    This project focuses on developing advanced behavioral AI models for real-time anomaly detection and threat identification at Endpoints/Users using Host ,Network log data analysis.
+                    This project focuses on developing advanced behavioral AI models for real-time anomaly detection and threat identification at Endpoints/Users using Host and Network Logs data analysis.
                 </p>
                 <div class="project-highlights">
                     <h3>Project Highlights:</h3>
@@ -351,28 +351,16 @@
                         <li>🔒 Real-time anomaly detection in Endpoint systems</li>
                         <li>🛡️ Enhancing threat detection capabilities</li>
                         <li>🔄 Improving system resilience against cybersecurity threats</li>
-                        <li>🔍 Utilizing cutting-edge Python, PyTorch, TensorFlow technologies</li>
+                        <li>🔍 Utilizing cutting-edge Python, PyTorch, TensorFlow, Docker, and NLP technologies for better anomaly detection</li>
                     </ul>
                 </div>
                 <p>
-                    The project's primary objective is to fortify cybersecurity measures by deploying advanced AI models that can identify anomalies and potential threats in real-time.
+                    The project's primary objective is to fortify cybersecurity measures by deploying advanced AI models that can identify anomalies and potential threats in real-time, leveraging techniques in Natural Language Processing for log analysis.
                 </p>
                 <div class="project-images">
                     <img src="images/Projects/Anomaly_Detection_Image1.jpg" alt="Anomaly Detection Image 1"> <!-- Image URL for Read More section -->
                 </div>
-                <div class="project-tags">
-                    <h3>Project Tags:</h3>
-                    <div class="tags">
-                        <span class="tag">Python</span>
-                        <span class="tag">PyTorch</span>
-                        <span class="tag">TensorFlow</span>
-                        <span class="tag">SQL</span>
-                        <span class="tag">Docker</span>
-                    </div>
-                </div>
-            </div>`,
-            readLessContent: "",
-            expanded: false // Initially, the project is not expanded
+            </div>`
         }
 
 
@@ -471,8 +459,8 @@
         // Function to filter projects based on category button and its sorting
         function filterProjects(category) {
             const categoryButtonSorts = {
-                'all': [0,1,2], // Replace with your actual IDs for 'all' category
-                'nlp': [0], // Replace with your actual IDs for 'nlp' category
+                'all': [0,3,1,2], // Replace with your actual IDs for 'all' category
+                'nlp': [0,3], // Replace with your actual IDs for 'nlp' category
                 'computerVision': [1,2], // Replace with your actual IDs for 'computerVision' category
                 'llm': [0] // Replace with your actual IDs for 'llm' category
             };
