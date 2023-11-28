@@ -247,7 +247,7 @@
             id: 1,
             title: 'Automated Water Bottle Level Classification',
             subtitle: 'Developing an image classification model to identify water levels in bottles using TensorFlow and CNN.',
-            libraries: ['TensorFlow',"OpenCV" , 'CNN', 'Image Processing',"keras",'Gradio'],
+            libraries: ['TensorFlow',"OpenCV" , 'CNN', 'Image Processing',"keras",'Gradio',"computer vision"],
             githubLink: 'https://github.com/chethanhn29/Water_bottle_classication_model',
             imageSrc: 'images/Projects/water_bottle_image_classification.jpg',
             readMoreContent: `
@@ -293,9 +293,9 @@
             id: 2,
             title: 'Rice Leaf Disease Detection Using CNN',
             subtitle: 'Objective: To detect rice leaf disease through image analysis using CNN with Keras and TensorFlow.',
-            libraries: ['Keras', 'TensorFlow', 'OpenCV'],
+            libraries: ['Keras', 'TensorFlow', 'OpenCV',"Computer vision","Image Classification"],
             githubLink: 'https://github.com/chethanhn29/Rice-Leaf-disease-detection', // Insert your GitHub link here
-            imageSrc: 'images/Projects/Rice_Leaf_Disease_Detection.png',
+            imageSrc: 'images/Projects/Rice_Leaf_Disease_Detection_main.png',
             readMoreContent: `
                 <div class="project-description">
                     <h2>Rice Leaf Disease Detection with CNN</h2>
@@ -311,7 +311,7 @@
                         </ul>
                     </div>
                     <div class="project-image">
-                        <img src="images/Projects/Rice_Leaf_Image_model_arch.png" alt="Rice Leaf Image">
+                        <img src="images/Projects/Rice_Leaf_Image_model_image1.png" alt="Rice Leaf Image">
                     </div>
                     <p>
                         The project workflow is segmented into distinct stages, including data loading, dataset preparation, label mapping using JSON, data preprocessing, model building, and training.
@@ -330,7 +330,51 @@
             `,
             readLessContent: "",
             expanded: false // Initially, the project is not expanded
+        },
+
+        {
+            id: 3,
+            title: 'AI-Driven Real-Time Anomaly Detection for Endpoint Security',
+            subtitle: 'Advanced behavioral AI models for real-time anomaly detection and threat identification at Endpoints/Users using Host and Network Logs data.',
+            libraries: ['Python', 'PyTorch', 'TensorFlow', 'SQL', 'Docker',"NLP"],
+            githubLink: 'https://github.com/chethanhn29/Real_time_Anomaly_Detection_for_Endpoint_Security',
+            imageSrc: 'images/Projects/Anomaly_Detection_Main.jpg', // Main image URL
+            readMoreContent: `
+            <div class="project-description">
+                <h2>Enhancing Endpoint Security!</h2>
+                <p>
+                    This project focuses on developing advanced behavioral AI models for real-time anomaly detection and threat identification at Endpoints/Users using Host ,Network log data analysis.
+                </p>
+                <div class="project-highlights">
+                    <h3>Project Highlights:</h3>
+                    <ul>
+                        <li>🔒 Real-time anomaly detection in Endpoint systems</li>
+                        <li>🛡️ Enhancing threat detection capabilities</li>
+                        <li>🔄 Improving system resilience against cybersecurity threats</li>
+                        <li>🔍 Utilizing cutting-edge Python, PyTorch, TensorFlow technologies</li>
+                    </ul>
+                </div>
+                <p>
+                    The project's primary objective is to fortify cybersecurity measures by deploying advanced AI models that can identify anomalies and potential threats in real-time.
+                </p>
+                <div class="project-images">
+                    <img src="images/Projects/Anomaly_Detection_Image1.jpg" alt="Anomaly Detection Image 1"> <!-- Image URL for Read More section -->
+                </div>
+                <div class="project-tags">
+                    <h3>Project Tags:</h3>
+                    <div class="tags">
+                        <span class="tag">Python</span>
+                        <span class="tag">PyTorch</span>
+                        <span class="tag">TensorFlow</span>
+                        <span class="tag">SQL</span>
+                        <span class="tag">Docker</span>
+                    </div>
+                </div>
+            </div>`,
+            readLessContent: "",
+            expanded: false // Initially, the project is not expanded
         }
+
 
             // Include other project objects similarly
         ];
