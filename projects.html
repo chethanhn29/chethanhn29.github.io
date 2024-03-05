@@ -331,6 +331,37 @@
             </div>`,
         readLessContent: "",
         expanded: false // Initially, the project is not expanded
+        },
+
+
+        {
+              "id": 4,
+              "title": "Semantic Search with Hugging Face LLM and Pinecone",
+              "subtitle": "Leveraging AI for Efficient Similarity Search within a Quora Question Dataset",
+              "libraries": ["Hugging Face", "Pinecone",],
+                githubLink: 'https://github.com/chethanhn29/Large-Language-Models/tree/main/Semantic_Seach_using_LLM_and_vector_database',
+              "imageSrc": "images/Projects/Semantic_Search.png", // Replace with the path to your image
+              "readMoreContent": `
+                <div class="project-description">
+                  <h2>Empowering Semantic Search with Cutting-Edge Technologies</h2>
+                  <p>
+                    This project delves into the realm of semantic search, a powerful technique that utilizes vectors to identify the most similar items in a dataset to a given query. Here, we explore the implementation of semantic search using Hugging Face LLM, a state-of-the-art language model, and Pinecone, a cloud-based vector database service.
+                  </p>
+                  <div class="project-highlights">
+                    <h3>Project Highlights:</h3>
+                    <ul>
+                      <li> **Semantic Search:** Efficiently retrieves similar questions based on user queries, leveraging vector representations and similarity calculations.</li>
+                      <li> **Hugging Face LLM:** Encodes text data (questions) into high-dimensional vectors, enabling effective comparison and retrieval.</li>
+                      <li> **Pinecone Integration:** Stores and indexes the encoded vectors, facilitating rapid search operations.</li>
+                      <li> **Enhanced User Experience:** Presents the top K most relevant search results, ensuring users find the information they seek.</li>
+                    </ul>
+                  </div>
+                  <p>
+                    By combining the strengths of Hugging Face LLM and Pinecone, this project paves the way for a robust and efficient semantic search solution. This approach empowers users to explore and discover relevant information within the Quora question dataset, fostering a seamless and productive search experience.
+                  </p>
+                </div>`,
+              "readLessContent": "",
+              "expanded": false // Initially, the project is not expanded
         }
 
 
@@ -429,10 +460,10 @@
         // Function to filter projects based on category button and its sorting
         function filterProjects(category) {
             const categoryButtonSorts = {
-                'all': [0,3,1,2], // Replace with your actual IDs for 'all' category
-                'nlp': [0,3], // Replace with your actual IDs for 'nlp' category
+                'all': [0,3,1,2,4], // Replace with your actual IDs for 'all' category
+                'nlp': [0,3,4], // Replace with your actual IDs for 'nlp' category
                 'computerVision': [1,2], // Replace with your actual IDs for 'computerVision' category
-                'llm': [0] // Replace with your actual IDs for 'llm' category
+                'llm': [0,4] // Replace with your actual IDs for 'llm' category
             };
 
             const sortedIds = categoryButtonSorts[category] || []; // Get sorted IDs for the specified category
