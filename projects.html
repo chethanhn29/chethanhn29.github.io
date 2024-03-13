@@ -371,6 +371,42 @@
             </div>`,
           "readLessContent": "",
           "expanded": false
+        },
+
+        {
+           "id": 5,
+           "title": "Image Whisper - Image Processing and Text-to-Speech App",
+           "subtitle": "Streamlit web application for image processing, object detection, text extraction, and text-to-speech synthesis.",
+           "libraries": ["timm", "phonemizer", "inflect", "streamlit", "Pillow", "torch", "transformers", "matplotlib", "py-espeak-ng"],
+           "githubLink": "https://github.com/chethanhn29/Large_Language_Models-Pojects/tree/main/Image_Whisper",
+           "imageSrc": "images/Projects/Image_workflow_main.jpeg",
+           "readMoreContent": `
+               <div class="project-description">
+                   <h2>Image Whisper - Revolutionizing Image Processing</h2>
+                   <p>
+                       Image Whisper is a cutting-edge Streamlit web application that combines image processing, object detection, text extraction, and text-to-speech conversion. Users can upload images and receive detailed insights through audio narrations.
+                   </p>
+                   <div class="project-highlights">
+                       <h3>Project Highlights:</h3>
+                       <ul>
+                           <li>🔍 Reliable Object Detection using DETR model</li>
+                           <li>💬 Seamless Text-to-Speech synthesis with VITS model</li>
+                           <li>🎨 Provides detailed explanations of detected text</li>
+                           <li>🌐 Intuitive web interface for user interaction</li>
+                       </ul>
+                   </div>
+                   <p>
+                       Image Whisper simplifies image analysis and comprehension with its powerful object detection and text-to-speech capabilities, enhancing user experiences and accessibility to image content.
+                   </p>
+                    <p>
+                        For more details and code implementation, visit the GitHub repository: <a href="https://github.com/chethanhn29/Large_Language_Models-Pojects/tree/main/Image_Whisper">GitHub Repository</a>.
+                    </p>
+                    <p>
+                        This project is deployed on Hugging Face Spaces with Streamlit as the web interface : <a href="https://huggingface.co/spaces/Chethu/Image_Whisper">Hugging Face Spaces</a>.
+                    </p>
+               </div>`,
+           "readLessContent": "",
+           "expanded": false
         }
 
             // Include other project objects similarly
@@ -468,10 +504,10 @@
         // Function to filter projects based on category button and its sorting
         function filterProjects(category) {
             const categoryButtonSorts = {
-                'all': [0,3,1,2,4], // Replace with your actual IDs for 'all' category
+                'all': [0,3,1,2,4,5], // Replace with your actual IDs for 'all' category
                 'nlp': [0,3,4], // Replace with your actual IDs for 'nlp' category
-                'computerVision': [1,2], // Replace with your actual IDs for 'computerVision' category
-                'llm': [0,4] // Replace with your actual IDs for 'llm' category
+                'computerVision': [1,2,5], // Replace with your actual IDs for 'computerVision' category
+                'llm': [0,4,5] // Replace with your actual IDs for 'llm' category
             };
 
             const sortedIds = categoryButtonSorts[category] || []; // Get sorted IDs for the specified category
