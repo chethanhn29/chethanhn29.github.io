@@ -539,10 +539,10 @@
         // Function to filter projects based on category button and its sorting
         function filterProjects(category) {
             const categoryButtonSorts = {
-                'all': [0,3,1,2,4,5], // Replace with your actual IDs for 'all' category
-                'nlp': [0,3,4], // Replace with your actual IDs for 'nlp' category
+                'all': [0,3,1,2,4,5,6], // Replace with your actual IDs for 'all' category
+                'nlp': [0,3,4,6], // Replace with your actual IDs for 'nlp' category
                 'computerVision': [1,2,5], // Replace with your actual IDs for 'computerVision' category
-                'llm': [0,4,5] // Replace with your actual IDs for 'llm' category
+                'llm': [0,4,5,6] // Replace with your actual IDs for 'llm' category
             };
 
             const sortedIds = categoryButtonSorts[category] || []; // Get sorted IDs for the specified category
